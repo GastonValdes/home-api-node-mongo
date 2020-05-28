@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controllerSensores = require('../controller/controller_sensores');
-//const controllerActuadores = require('../controller/controller_actuadores');
+const controllerActuadores = require('../controller/controller_actuadores');
 //const controllerRegistros = require('../controller/controller_registros');
 //const controllerUmbrales = require('../controller/controller_umbrales');
 
@@ -18,11 +18,11 @@ router.delete('/sensores/:id', controllerSensores.deleteSensor);
 //router.patch('/umbrales', controllerSensores.updateUmbral);
 //router.delete('/umbrales/:id', controllerSensores.deleteUmbral);
 //endPoint Actuadores
-//router.post('/actuadores', controllerUmbrales.addActuador);
-//router.get('/actuadores', controllerSensores.showActuadores);
-//router.get('/actuadores/:id', controllerSensores.showSingleActuador);
-//router.patch('/actuadores', controllerSensores.updateActuador);
-//router.delete('/actuadores/:id', controllerSensores.deleteActuador);
+router.post('/actuadores', controllerActuadores.addActuador);
+router.get('/actuadores', controllerActuadores.showActuadores);
+router.get('/actuadores/:id', controllerActuadores.showSingleActuador);
+router.patch('/actuadores', controllerActuadores.updateActuador);
+router.delete('/actuadores/:id', controllerActuadores.deleteActuador);
 //endPoint Registros
 //router.post('/registros', controllerUmbrales.addRegistro);
 //router.get('/registros', controllerSensores.showARegistros);

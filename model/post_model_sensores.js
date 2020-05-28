@@ -29,4 +29,4 @@ const postSchemaSensores = new Schema({
    
 });
 
-module.exports = mongoose.model('post', postSchemaSensores, 'sensores');
+module.exports = mongoose.model('postSensor', postSchemaSensores, 'sensores');

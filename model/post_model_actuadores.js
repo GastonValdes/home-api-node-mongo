@@ -36,4 +36,4 @@ const postSchemaActuadores = new Schema({
     }
 });
 
-module.exports = mongoose.model('post', postSchemaActuadores, 'actuadores');
+module.exports = mongoose.model('postActuador', postSchemaActuadores, 'actuadores');

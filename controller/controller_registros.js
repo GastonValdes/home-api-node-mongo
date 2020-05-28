@@ -1,54 +1,54 @@
-const Post = require('../model/post_model_sensores');
+ const Registro = require('../model/post_model_registros');
 
-exports.addSensorPost = (req, res, next) => {
-  const post = new Post({
+exports.addRegistro = (req, res, next) => {
+  const postRegistro = new Registro({
     identificador: req.body.identificador,
     actividad: req.body.actividad,
     actuador: req.body.actuador,
     sensor: req.body.sensor
     });
-  post
+  postRegistro
     .save()
     .then(() => {
       // console.log(req.body.title);
-      res.send('post added successfully');
+      res.send('Registro agregado con éxito');
     })
     .catch(err => {
       res.status(400).send(err);
     });
 };
 
-exports.showPost = (req, res, next) => {
-  Post.find()
+exports.showARegistros = (req, res, next) => {
+  Registro.find()
     .then(result => {
       res.send(result);
     })
     .catch(err => res.status(400).send(err));
 };
 
-exports.singlePost = (req, res, next) => {
-  Post.findById(req.params.id)
+exports.showSingleRegistro = (req, res, next) => {
+  Registro.findById(req.params.id)
     .then(result => {
       res.send(result);
     })
     .catch(err => res.status(400).send(err));
 };
 
-exports.updatePost = (req, res, next) => {
-  Post.findById(req.body.id).then(result => {
-    identificador = req.body.identificador,
+exports.updateRegistro = (req, res, next) => {
+  Registro.findById(req.body.id).then(result => {
+    result.identificador = req.body.identificador,
     result.actividad = req.body.actividad,
     result.actuador = req.body.actuador,
     result.sensor = req.body.sensor;
     return result.save();
-  }).then(post => {
-    res.send('post updated successfully');
+  }).then(postRegistro => {
+    res.send('Registro actualizado con éxito');
   }).catch(err => res.status(400).send(err));
 };
 
-exports.deletePost = (req, res, next) => {
-  Post.findByIdAndRemove(req.params.id)
+exports.deleteRegistro = (req, res, next) => {
+  Registro.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.send('post deleted');
+      res.send('Registro eliminado');
     }).catch(err => res.status(400).send(err));
 };

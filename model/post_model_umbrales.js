@@ -24,4 +24,4 @@ const postSchemaUmbrales = new Schema({
     }
 });
 
-module.exports = mongoose.model('post', postSchemaUmbrales, 'umbrales');
+ module.exports = mongoose.model('postUmbral', postSchemaUmbrales, 'umbrales');

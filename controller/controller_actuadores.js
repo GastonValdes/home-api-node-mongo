@@ -1,4 +1,4 @@
-const Actuador = require('../model/post_model_sensores');
+ const Actuador = require('../model/post_model_actuadores');
 
 exports.addActuador = (req, res, next) => {
   const postActuador = new Actuador({
@@ -37,7 +37,7 @@ exports.showSingleActuador = (req, res, next) => {
 
 exports.updateActuador = (req, res, next) => {
   Actuador.findById(req.body.id).then(result => {
-  identificador = req.body.identificador,
+  result.identificador = req.body.identificador,
     result.tipo = req.body.tipo,
     result.subtipo = req.body.subtipo,
     result.habilitado = req.body.habilitado,
@@ -49,7 +49,7 @@ exports.updateActuador = (req, res, next) => {
 };
 
 exports.deleteActuador = (req, res, next) => {
-  Post.findByIdAndRemove(req.params.id)
+  Actuador.findByIdAndRemove(req.params.id)
     .then(() => {
       res.send('actuador eliminado');
     }).catch(err => res.status(400).send(err));

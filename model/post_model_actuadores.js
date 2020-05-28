@@ -1,32 +1,24 @@
-const mongoose = require('mongoose');
+ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchemaActuadores = new Schema({
-        nombre: {
+    identificador: {
         type: String,
         required: true
     },
-    apellido: {
+    tipo: {
         type: String,
         required: true
     },
-    email: {
+    subtipo: {
         type: String,
         required: true
     },
-    celular: {
+    habilitado: {
         type: String,
         required: true
     },
-    telfijo: {
-        type: String,
-        required: true
-    },
-    puesto: {
-        type: String,
-        required: true
-    },
-    empresa: {
+    operacion: {
         type: String,
         required: true
     },

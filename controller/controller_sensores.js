@@ -1,4 +1,4 @@
-const Sensor = require('../model/post_model_sensores');
+ const Sensor = require('../model/post_model_sensores');
 
 exports.addSensor = (req, res, next) => {
   const postSensor = new Sensor({
@@ -37,7 +37,7 @@ exports.showSingleSensor = (req, res, next) => {
 
 exports.updateSensor = (req, res, next) => {
   Sensor.findById(req.body.id).then(result => {
-  identificador = req.body.identificador,
+  result.identificador = req.body.identificador,
     result.tipo = req.body.tipo,
     result.subtipo = req.body.subtipo,
     result.habilitado = req.body.habilitado,

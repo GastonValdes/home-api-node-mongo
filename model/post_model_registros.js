@@ -1,34 +1,20 @@
-const mongoose = require('mongoose');
+ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchemaRegistros = new Schema({
-    nombre: {
+    identificador: {
         type: String,
         required: true
     },
-    apellido: {
+    actividad: {
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true
+    actuador: {
+        type: String
     },
-    celular: {
-        type: String,
-        required: true
-    },
-    telfijo: {
-        type: String,
-        required: true
-    },
-    puesto: {
-        type: String,
-        required: true
-    },
-    empresa: {
-        type: String,
-        required: true
+    sensor: {
+        type: String
     },
     date: {
         type: Date,
@@ -36,4 +22,4 @@ const postSchemaRegistros = new Schema({
     }
 });
 
-module.exports = mongoose.model('post', postSchemaRegistros, 'registros');
+module.exports = mongoose.model('postRegistro', postSchemaRegistros, 'registros');

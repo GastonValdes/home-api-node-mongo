@@ -1,54 +1,54 @@
-const Post = require('../model/post_model_umbrales');
+const Umbral = require('../model/post_model_umbrales');
 
-exports.addSUmbral = (req, res, next) => {
-  const post = new Post({
+exports.addUmbral = (req, res, next) => {
+  const postUmbral = new Umbral({
     identificador: req.body.identificador,
     descripcion: req.body.descripcion,
     valor: req.body.valor,
     habilitado: req.body.habilitado
     });
-  post
+  postUmbral
     .save()
     .then(() => {
       // console.log(req.body.title);
-      res.send('umbral added successfully');
+      res.send('umbral agregado con éxito');
     })
     .catch(err => {
       res.status(400).send(err);
     });
 };
 
-exports.showPost = (req, res, next) => {
-  Post.find()
+exports.showUmbrales = (req, res, next) => {
+  Umbral.find()
     .then(result => {
       res.send(result);
     })
     .catch(err => res.status(400).send(err));
 };
 
-exports.singlePost = (req, res, next) => {
-  Post.findById(req.params.id)
+exports.showSingleUmbral = (req, res, next) => {
+  Umbral.findById(req.params.id)
     .then(result => {
       res.send(result);
     })
     .catch(err => res.status(400).send(err));
 };
 
-exports.updatePost = (req, res, next) => {
-  Post.findById(req.body.id).then(result => {
-  identificador = req.body.identificador,
+exports.updateUmbral = (req, res, next) => {
+  Umbral.findById(req.body.id).then(result => {
+  result.identificador = req.body.identificador,
     result.descripcion = req.body.descripcion,
     result.valor = req.body.valor,
     result.habilitado = req.body.habilitado;
     return result.save();
-  }).then(post => {
-    res.send('umbral updated successfully');
+  }).then(postUmbral => {
+    res.send('umbral actualizado con éxito');
   }).catch(err => res.status(400).send(err));
 };
 
-exports.deletePost = (req, res, next) => {
-  Post.findByIdAndRemove(req.params.id)
+exports.deleteUmbral = (req, res, next) => {
+  Umbral.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.send('umbral deleted');
+      res.send('umbral eliminado');
     }).catch(err => res.status(400).send(err));
 };

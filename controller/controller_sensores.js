@@ -37,7 +37,7 @@ exports.showSingleSensor = (req, res, next) => {
 
 exports.updateSensor = (req, res, next) => {
   Post.findById(req.body.id).then(result => {
-  identificador: req.body.identificador,
+  identificador = req.body.identificador,
     result.tipo = req.body.tipo,
     result.subtipo = req.body.subtipo,
     result.habilitado = req.body.habilitado,

@@ -3,10 +3,9 @@ const Post = require('../model/post_model_sensores');
 exports.addSensorPost = (req, res, next) => {
   const post = new Post({
     identificador: req.body.identificador,
-    tipo: req.body.tipo,
-    subtipo: req.body.subtipo,
-    habilitado: req.body.habilitado,
-    medicion: req.body.medicion
+    actividad: req.body.actividad,
+    actuador: req.body.actuador,
+    sensor: req.body.sensor
     });
   post
     .save()
@@ -37,11 +36,10 @@ exports.singlePost = (req, res, next) => {
 
 exports.updatePost = (req, res, next) => {
   Post.findById(req.body.id).then(result => {
-  identificador: req.body.identificador,
-    result.tipo = req.body.tipo,
-    result.subtipo = req.body.subtipo,
-    result.habilitado = req.body.habilitado,
-    result.medicion = req.body.medicion;
+    identificador = req.body.identificador,
+    result.actividad = req.body.actividad,
+    result.actuador = req.body.actuador,
+    result.sensor = req.body.sensor;
     return result.save();
   }).then(post => {
     res.send('post updated successfully');

@@ -6,7 +6,7 @@ exports.addSensorPost = (req, res, next) => {
     tipo: req.body.tipo,
     subtipo: req.body.subtipo,
     habilitado: req.body.habilitado,
-    medicion: req.body.medicion
+    operacion: req.body.operacion
     });
   post
     .save()
@@ -37,11 +37,11 @@ exports.singlePost = (req, res, next) => {
 
 exports.updatePost = (req, res, next) => {
   Post.findById(req.body.id).then(result => {
-  identificador: req.body.identificador,
+  identificador = req.body.identificador,
     result.tipo = req.body.tipo,
     result.subtipo = req.body.subtipo,
     result.habilitado = req.body.habilitado,
-    result.medicion = req.body.medicion;
+    result.operacion = req.body.operacion;
     return result.save();
   }).then(post => {
     res.send('post updated successfully');

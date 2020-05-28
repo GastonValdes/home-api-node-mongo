@@ -36,7 +36,7 @@ exports.singlePost = (req, res, next) => {
 
 exports.updatePost = (req, res, next) => {
   Post.findById(req.body.id).then(result => {
-  identificador: req.body.identificador,
+  identificador = req.body.identificador,
     result.descripcion = req.body.descripcion,
     result.valor = req.body.valor,
     result.habilitado = req.body.habilitado;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchemaActuadores = new Schema({
-    nombre: {
+        nombre: {
         type: String,
         required: true
     },

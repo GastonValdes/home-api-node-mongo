@@ -3,6 +3,8 @@
 exports.addActuador = (req, res, next) => {
   const postActuador = new Actuador({
     identificador: req.body.identificador,
+    dir_ip: req.body.dir_ip,
+    dir_mac: req.body.dir_mac,
     tipo: req.body.tipo,
     subtipo: req.body.subtipo,
     habilitado: req.body.habilitado,
@@ -38,7 +40,9 @@ exports.showSingleActuador = (req, res, next) => {
 exports.updateActuador = (req, res, next) => {
   Actuador.findById(req.body.id).then(result => {
   result.identificador = req.body.identificador,
-    result.tipo = req.body.tipo,
+  result.dir_ip = req.body.dir_ip,
+  result.dir_mac = req.body.dir_mac,  
+  result.tipo = req.body.tipo,
     result.subtipo = req.body.subtipo,
     result.habilitado = req.body.habilitado,
     result.operacion = req.body.operacion;

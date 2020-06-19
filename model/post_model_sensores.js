@@ -6,6 +6,15 @@ const postSchemaSensores = new Schema({
         type: String,
         required: true
     },
+    dir_ip: {
+        type: String,
+        required: true
+    },
+    dir_mac: {
+        type: String,
+        required: true
+    },
+      
     tipo: {
         type: String,
         required: true
@@ -23,7 +32,7 @@ const postSchemaSensores = new Schema({
         required: true
     },
     medicion: {
-        type: String,
+        type: Number,
         required: true
     }
    

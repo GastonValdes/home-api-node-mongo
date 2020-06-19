@@ -2,6 +2,7 @@ const Umbral = require('../model/post_model_umbrales');
 
 exports.addUmbral = (req, res, next) => {
   const postUmbral = new Umbral({
+    token: req.body.token,
     identificador: req.body.identificador,
     descripcion: req.body.descripcion,
     valor: req.body.valor,
@@ -10,7 +11,6 @@ exports.addUmbral = (req, res, next) => {
   postUmbral
     .save()
     .then(() => {
-      // console.log(req.body.title);
       res.send('umbral agregado con éxito');
     })
     .catch(err => {
@@ -36,7 +36,8 @@ exports.showSingleUmbral = (req, res, next) => {
 
 exports.updateUmbral = (req, res, next) => {
   Umbral.findById(req.body.id).then(result => {
-  result.identificador = req.body.identificador,
+    result.token = req.body.token,
+    result.identificador = req.body.identificador,
     result.descripcion = req.body.descripcion,
     result.valor = req.body.valor,
     result.habilitado = req.body.habilitado;

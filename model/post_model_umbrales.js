@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchemaUmbrales = new Schema({
+    token : {
+        type: String,
+        required: true
+    },
+
     identificador: {
         type: String,
         required: true
